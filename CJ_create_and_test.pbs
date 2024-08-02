@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#PBS -N CJ_create_and_test
+#PBS -l select=1:ncpus=8:mem=64gb
+#PBS -l walltime=12:00:00
+
+#PBS -j oe
+#PBS -M christopher.jin@unsw.edu.au
+#PBS -m ae
+
+cd /srv/scratch/z5312523/CJ_deepfri_from_seq
+
+source /srv/scratch/z5312523/Miniconda3/etc/profile.d/conda.sh
+
+conda create --name deepfri python=3.7
+conda activate deepfri
+mkdir models
+cd models
+wget https://users.flatironinstitute.org/~renfrew/DeepFRI_data/newest_trained_models.tar.gz
+cd ..
+wget https://github.com/flatironinstitute/DeepFRI/archive/refs/heads/master.zip
+unzip master.zip
+rm master.zip
+mv DeepFRI-master/ Deepfri
+tar -xvzf models/newest_trained_models.tar.gz -C Deepfri
+cd Deepfri/
+pip install .
+cd ..
+python CJ_deepfri_from_seq.py -o test -s SMTDLLSAEDIKKAIGAFTAADSFDHKKFFQMVGLKKKSADDVKKVFHILDKDKDGFIDEDELGSILKGFSSDARDLSAKETKTLMAAGDKDGDGKIGVEEFSTLVAES

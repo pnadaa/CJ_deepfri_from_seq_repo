@@ -1,0 +1,21 @@
+catalogues
+Deepfri/__pycache__
+Deepfri/.ropeproject
+Deepfri/deepfrier/.ropeproject
+
+# projects
+Deepfri/pred_cmaps_benchmark
+Deepfri/tasks.txt
+Deepfri/rosetta_aupr_perf.py
+Deepfri/random5k
+Deepfri/new_pdb
+Deepfri/old_slurm
+Deepfri/ncov2019
+Deepfri/sifts_models
+
+
+
+# models
+Deepfri/trained_models/*
+Deepfri/newest_trained/*
+Deepfri/alphafold2
