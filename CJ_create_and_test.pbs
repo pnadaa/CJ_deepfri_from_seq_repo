@@ -21,9 +21,14 @@ cd ..
 wget https://github.com/flatironinstitute/DeepFRI/archive/refs/heads/master.zip
 unzip master.zip
 rm master.zip
-mv DeepFRI-master/ Deepfri
-tar -xvzf models/newest_trained_models.tar.gz -C Deepfri
-cd Deepfri/
+mv DeepFRI-master/ deepfri_from_seq
+tar -xvzf models/newest_trained_models.tar.gz -C deepfri_from_seq
+mv deepfri_from_seq/README.md deepfri_from_seq/README_deepfri.md
+mkdir deepfri_from_seq/results
+cp deepfri_from_seq/seq2pdb/* deepfri_from_seq/
+rm -r deepfri_from_seq/seq2pdb
+cp -r !(deepfri_from_seq) /deepfri_from_seq
+ls | grep -xv "deepfri_from_seq/" | parallel rm -r
+cd deepfri_from_seq/
 pip install .
-cd ..
 python CJ_deepfri_from_seq.py -o test -s SMTDLLSAEDIKKAIGAFTAADSFDHKKFFQMVGLKKKSADDVKKVFHILDKDKDGFIDEDELGSILKGFSSDARDLSAKETKTLMAAGDKDGDGKIGVEEFSTLVAES

@@ -6,7 +6,7 @@ from pdb_util import pdb_line
 from structures_codegen import extract_atom_positions
 
 # Changed the input from the original input() to one which accepts the argparse input from CJ_argparse.py
-from ..CJ_deepfri_from_seq_repo.CJ_argparse import args
+from CJ_argparse import args
 
 
 # Maximum distance from any atom in an amino to the peptide nitrogen
