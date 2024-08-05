@@ -1,21 +1,22 @@
 catalogues
-Deepfri/__pycache__
-Deepfri/.ropeproject
-Deepfri/deepfrier/.ropeproject
+deepfri_from_seq/__pycache__
+deepfri_from_seq/.ropeproject
+deepfri_from_seq/deepfrier/.ropeproject
 
 # projects
-Deepfri/pred_cmaps_benchmark
-Deepfri/tasks.txt
-Deepfri/rosetta_aupr_perf.py
-Deepfri/random5k
-Deepfri/new_pdb
-Deepfri/old_slurm
-Deepfri/ncov2019
-Deepfri/sifts_models
+deepfri_from_seq/pred_cmaps_benchmark
+deepfri_from_seq/tasks.txt
+deepfri_from_seq/rosetta_aupr_perf.py
+deepfri_from_seq/random5k
+deepfri_from_seq/new_pdb
+deepfri_from_seq/old_slurm
+deepfri_from_seq/ncov2019
+deepfri_from_seq/sifts_models
 
 
 
 # models
-Deepfri/trained_models/*
-Deepfri/newest_trained/*
-Deepfri/alphafold2
+deepfri_from_seq/trained_models/*
+deepfri_from_seq/newest_trained/*
+deepfri_from_seq/alphafold2
+/models
