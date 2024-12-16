@@ -5,15 +5,21 @@
 #PBS -l walltime=12:00:00
 
 #PBS -j oe
-#PBS -M christopher.jin@unsw.edu.au
+
+#Change to your email for pbs notifications
+#PBS -M youremail@email.com
 #PBS -m ae
 
-cd /srv/scratch/z5312523/CJ_deepfri_from_seq
+#Change this line to specify where to install
+cd /path/to/installfolder
 
-source /srv/scratch/z5312523/Miniconda3/etc/profile.d/conda.sh
+#Change the path to your conda directory
+source /path/to/conda/Miniconda3/etc/profile.d/conda.sh
 
 conda create --name deepfri python=3.7
 conda activate deepfri
+
+#Download deepfri's CPU models, deepfri from the git page, and unpack both 
 mkdir models
 cd models
 wget https://users.flatironinstitute.org/~renfrew/DeepFRI_data/newest_trained_models.tar.gz
@@ -25,6 +31,8 @@ mv DeepFRI-master/ deepfri_from_seq
 tar -xvzf models/newest_trained_models.tar.gz -C deepfri_from_seq
 mv deepfri_from_seq/README.md deepfri_from_seq/README_deepfri.md
 mkdir deepfri_from_seq/results
+
+#Move all files to the deepfri folder for python compaitibility
 cp seq2pdb/* deepfri_from_seq
 rm -r seq2pdb
 cp * deepfri_from_seq
@@ -32,5 +40,9 @@ rm CJ_argparse.py
 rm CJ_create_and_test.py
 rm CJ_deepfri_from_seq.py
 cd deepfri_from_seq/
+
+#Install deepfri from the downloaded zip
 pip install .
+
+#Run a test sequence
 python CJ_deepfri_from_seq.py -o test -s SMTDLLSAEDIKKAIGAFTAADSFDHKKFFQMVGLKKKSADDVKKVFHILDKDKDGFIDEDELGSILKGFSSDARDLSAKETKTLMAAGDKDGDGKIGVEEFSTLVAES
